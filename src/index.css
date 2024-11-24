@@ -1,3 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+
+:root {
+  --clr-primary-blue: hsl(220, 98%, 61%);
+  --clr-check-bg: linear-gradient(
+    to right,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
+
+  --clr-neutral-200: hsl(0, 0%, 98%);
+  --clr-neutral-300: hsl(236, 33%, 92%);
+  --clr-neutral-400: hsl(233, 11%, 84%);
+  --clr-neutral-500: hsl(236, 9%, 61%);
+  --clr-neutral-600: hsl(235, 19%, 35%);
+}
+
 /* Andy Bell's css reset */
 
 /* Box sizing rules */
@@ -78,4 +95,8 @@ select {
 /* Anything that has been anchored to should have extra scroll margin */
 :target {
   scroll-margin-block: 5ex;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
 }
