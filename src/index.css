@@ -3,7 +3,7 @@
 :root {
   --clr-primary-blue: hsl(220, 98%, 61%);
   --clr-check-bg: linear-gradient(
-    to right,
+    130deg,
     hsl(192, 100%, 67%),
     hsl(280, 87%, 65%)
   );
@@ -90,6 +90,7 @@ button,
 textarea,
 select {
   font: inherit;
+  color: inherit;
 }
 
 /* Anything that has been anchored to should have extra scroll margin */
@@ -99,4 +100,5 @@ select {
 
 body {
   font-family: "Josefin Sans", sans-serif;
+  color: var(--clr-neutral-600);
 }
