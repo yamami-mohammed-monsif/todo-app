@@ -1,6 +1,7 @@
 .input-container {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   position: relative;
   margin-top: 2.5rem;
   margin-bottom: 1.5rem;
@@ -9,7 +10,7 @@
 }
 
 input[type="text"] {
-  flex: 1;
+  /* flex: 1; */
   padding: 0.8rem 3rem;
   border: none;
   outline: none;
@@ -21,14 +22,22 @@ input[type="text"]::placeholder {
   color: var(--clr-neutral-500);
 }
 
-input[type="checkbox"] {
+.add-btn {
+  margin-right: 1.5rem;
+  background: inherit;
+  font: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+/* input[type="checkbox"] {
   position: absolute;
   left: 1.2rem;
   cursor: pointer;
   opacity: 0;
-}
+} */
 
-.input-container::before {
+/* .input-container::before {
   content: "";
   width: 1.3rem;
   height: 1.3rem;
@@ -44,4 +53,4 @@ input[type="checkbox"] {
 .input-container:has(input[type="checkbox"]:checked)::before {
   content: url("../../assets/images/icon-check.svg");
   background: var(--clr-check-bg);
-}
+} */

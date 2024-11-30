@@ -1,11 +1,31 @@
+import { useState } from "react";
 import "./input.css";
 
-function Input() {
+function Input({ onAdd }) {
+  const [input, setInput] = useState("");
+
+  function handleChange(e) {
+    setInput(e.target.value);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    input !== "" && onAdd(input);
+    setInput("");
+  }
+
   return (
-    <div className="input-container">
-      <input type="checkbox" />
-      <input type="text" placeholder="create a new todo..." />
-    </div>
+    <form className="input-container" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="create a new todo..."
+        value={input}
+        onChange={handleChange}
+      />
+      <button className="add-btn" onClick={handleSubmit}>
+        Add
+      </button>
+    </form>
   );
 }
 
