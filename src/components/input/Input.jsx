@@ -22,7 +22,7 @@ function Input({ onAdd }) {
         value={input}
         onChange={handleChange}
       />
-      <button className="add-btn" onClick={handleSubmit}>
+      <button className="add-btn" type="submit" onClick={handleSubmit}>
         Add
       </button>
     </form>

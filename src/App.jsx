@@ -10,7 +10,12 @@ import "./App.css";
 function App() {
   const [todos, setTodos] = useState([]);
 
-  function addTodo(newTodo) {
+  function addTodo(newTodoText) {
+    const newTodo = {
+      id: Date.now(),
+      text: newTodoText,
+      completed: false,
+    };
     setTodos((prev) => {
       return [...prev, newTodo];
     });

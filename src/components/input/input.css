@@ -29,28 +29,3 @@ input[type="text"]::placeholder {
   border: none;
   cursor: pointer;
 }
-
-/* input[type="checkbox"] {
-  position: absolute;
-  left: 1.2rem;
-  cursor: pointer;
-  opacity: 0;
-} */
-
-/* .input-container::before {
-  content: "";
-  width: 1.3rem;
-  height: 1.3rem;
-  position: absolute;
-  left: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: solid 1px var(--clr-neutral-400);
-  border-radius: 100%;
-}
-
-.input-container:has(input[type="checkbox"]:checked)::before {
-  content: url("../../assets/images/icon-check.svg");
-  background: var(--clr-check-bg);
-} */

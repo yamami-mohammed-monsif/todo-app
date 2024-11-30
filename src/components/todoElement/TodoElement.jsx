@@ -5,9 +5,9 @@ function TodoElement({ todos }) {
     <ul className="todos-container">
       {todos.map((todo, index) => {
         return (
-          <li key={index} className="todo-element">
-            <input type="checkbox" id={index} />
-            <label htmlFor={index}>{todo}</label>
+          <li key={todo.id} className="todo-element">
+            <input type="checkbox" id={todo.id} />
+            <label htmlFor={todo.id}>{todo.text}</label>
           </li>
         );
       })}
