@@ -46,3 +46,12 @@ input[type="checkbox"] {
   text-decoration: line-through;
   color: var(--clr-neutral-400);
 }
+
+.deleteItem-btn {
+  background: inherit;
+  border: none;
+  position: absolute;
+  right: 1rem;
+  cursor: pointer;
+  width: 1rem;
+}

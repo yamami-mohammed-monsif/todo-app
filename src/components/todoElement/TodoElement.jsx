@@ -1,6 +1,8 @@
 import "./todo-element.css";
 
-function TodoElement({ todos }) {
+import crossIcon from "../../assets/images/icon-cross.svg";
+
+function TodoElement({ todos, onDelete }) {
   return (
     <ul className="todos-container">
       {todos.map((todo, index) => {
@@ -8,6 +10,9 @@ function TodoElement({ todos }) {
           <li key={todo.id} className="todo-element">
             <input type="checkbox" id={todo.id} />
             <label htmlFor={todo.id}>{todo.text}</label>
+            <button className="deleteItem-btn" onClick={() => onDelete(index)}>
+              <img src={crossIcon} />
+            </button>
           </li>
         );
       })}

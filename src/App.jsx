@@ -21,13 +21,21 @@ function App() {
     });
   }
 
+  function deleteItem(idx) {
+    setTodos((previous) => {
+      return todos.filter((item, index) => {
+        return index !== idx;
+      });
+    });
+  }
+
   return (
     <>
       <BackgroundImage />
       <div className="container">
         <Header />
         <Input onAdd={addTodo} />
-        <TodoElement todos={todos} />
+        <TodoElement todos={todos} onDelete={deleteItem} />
       </div>
     </>
   );
