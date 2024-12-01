@@ -23,7 +23,7 @@ function App() {
 
   function deleteItem(idx) {
     setTodos((previous) => {
-      return todos.filter((item, index) => {
+      return previous.filter((item, index) => {
         return index !== idx;
       });
     });
