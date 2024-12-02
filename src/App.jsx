@@ -31,6 +31,7 @@ function App() {
     });
   }
 
+  // toggle todo item completed status
   function toggleTodo(id) {
     setTodos((previous) => {
       return previous.map((todo) => {
