@@ -10,6 +10,7 @@ import "./App.css";
 function App() {
   const [todos, setTodos] = useState([]);
 
+  // create new todo item
   function addTodo(newTodoText) {
     const newTodo = {
       id: Date.now(),
@@ -21,10 +22,19 @@ function App() {
     });
   }
 
+  // delete a todo item
   function deleteItem(idx) {
     setTodos((previous) => {
-      return previous.filter((item, index) => {
+      return previous.filter((_, index) => {
         return index !== idx;
+      });
+    });
+  }
+
+  function toggleTodo(id) {
+    setTodos((previous) => {
+      return previous.map((todo) => {
+        return todo.id === id ? { ...todo, completed: !todo.completed } : todo;
       });
     });
   }
@@ -35,7 +45,11 @@ function App() {
       <div className="container">
         <Header />
         <Input onAdd={addTodo} />
-        <TodoElement todos={todos} onDelete={deleteItem} />
+        <TodoElement
+          todos={todos}
+          onDelete={deleteItem}
+          onToggle={toggleTodo}
+        />
       </div>
     </>
   );
