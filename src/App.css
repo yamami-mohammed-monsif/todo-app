@@ -1,5 +1,5 @@
 .container {
-  width: 40%;
+  width: min(85%, 450px);
   margin-inline: auto;
   margin-top: 5rem;
 }
