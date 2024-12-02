@@ -13,7 +13,7 @@ function TodoElement({ todos, onDelete, onToggle }) {
     setTimeout(() => {
       onDelete(index);
       setDeletedTodo(null);
-    }, 300);
+    }, 400);
   }
 
   return (
