@@ -1,14 +1,19 @@
-import { useState } from "react";
+import { useState, createContext } from "react";
 
 import BackgroundImage from "./components/backgroundImage/BackgroundImage";
 import Header from "./components/header/Header";
 import Input from "./components/input/Input";
 import TodoElement from "./components/todoElement/TodoElement";
+import ControllBar from "./components/controllBar/ControllBar";
 
 import "./App.css";
+import "./components/todoElement/todo-element.css";
+
+export const filterContext = createContext();
 
 function App() {
   const [todos, setTodos] = useState([]);
+  const [filter, setFilter] = useState("all");
 
   // create new todo item
   function addTodo(newTodoText) {
@@ -23,10 +28,10 @@ function App() {
   }
 
   // delete a todo item
-  function deleteItem(idx) {
+  function deleteItem(id) {
     setTodos((previous) => {
-      return previous.filter((_, index) => {
-        return index !== idx;
+      return previous.filter((item) => {
+        return item.id !== id;
       });
     });
   }
@@ -40,17 +45,45 @@ function App() {
     });
   }
 
+  // clear completed items
+  function clearCompleted() {
+    setTodos((previous) => {
+      return previous.filter((todo) => {
+        return todo.completed !== true;
+      });
+    });
+  }
+
+  // filter the todos by active or completed
+  const filteredTodos = todos.filter((todo) => {
+    if (filter === "all") return true;
+    if (filter === "active") return !todo.completed;
+    if (filter === "completed") return todo.completed;
+  });
+
   return (
     <>
       <BackgroundImage />
       <div className="container">
         <Header />
         <Input onAdd={addTodo} />
-        <TodoElement
-          todos={todos}
-          onDelete={deleteItem}
-          onToggle={toggleTodo}
-        />
+        <ul className="todos-container">
+          {filteredTodos.map((todo) => {
+            return (
+              <TodoElement
+                key={todo.id}
+                todoItem={todo}
+                onDelete={deleteItem}
+                onToggle={toggleTodo}
+              />
+            );
+          })}
+        </ul>
+        {todos.length > 0 && (
+          <filterContext.Provider value={{ setFilter, filter }}>
+            <ControllBar onClearCompleted={clearCompleted} todos={todos} />
+          </filterContext.Provider>
+        )}
       </div>
     </>
   );
