@@ -14,7 +14,7 @@ A simple and interactive Todo App built with React, allowing users to add, delet
 
 ## Demo
 
-- You can view the live demo of the app [here]()
+- You can view the live demo of the app [here](https://yamami-mohammed-monsif.github.io/todo-app/)
 
 ## Features
 
@@ -39,7 +39,7 @@ A simple and interactive Todo App built with React, allowing users to add, delet
 1. Clone the repository
 
 ```
-git clone https://github.com/your-username/todo-app.git
+git clone https://github.com/yamami-mohammed-monsif/todo-app.git
 ```
 
 2. Navigate to the project directory
