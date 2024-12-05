@@ -12,12 +12,15 @@ import "./components/todoElement/todo-element.css";
 export const filterContext = createContext();
 
 function App() {
-  const [todos, setTodos] = useState([]);
-  const [filter, setFilter] = useState("all");
-
   // check the saved theme when the app laods
   const savedTheme = localStorage.getItem("theme");
   const [isDarkTheme, setIsDarkTheme] = useState(savedTheme === "dark");
+
+  // get todos from local storage if there are any
+  const savedTodos = JSON.parse(localStorage.getItem("todos")) || [];
+  const [todos, setTodos] = useState(savedTodos);
+
+  const [filter, setFilter] = useState("all");
 
   // create new todo item
   function addTodo(newTodoText) {
@@ -30,6 +33,11 @@ function App() {
       return [...prev, newTodo];
     });
   }
+
+  // save todos to local storage
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   // delete a todo item
   function deleteItem(id) {
