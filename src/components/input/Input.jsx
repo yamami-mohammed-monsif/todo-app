@@ -10,7 +10,7 @@ function Input({ onAdd }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    input !== "" && onAdd(input);
+    input.trim() !== "" && onAdd(input);
     setInput("");
   }
 

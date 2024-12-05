@@ -1,4 +1,4 @@
-import { useState, createContext } from "react";
+import { useState, useEffect, createContext } from "react";
 
 import BackgroundImage from "./components/backgroundImage/BackgroundImage";
 import Header from "./components/header/Header";
@@ -14,6 +14,10 @@ export const filterContext = createContext();
 function App() {
   const [todos, setTodos] = useState([]);
   const [filter, setFilter] = useState("all");
+
+  // check the saved theme when the app laods
+  const savedTheme = localStorage.getItem("theme");
+  const [isDarkTheme, setIsDarkTheme] = useState(savedTheme === "dark");
 
   // create new todo item
   function addTodo(newTodoText) {
@@ -61,11 +65,26 @@ function App() {
     if (filter === "completed") return todo.completed;
   });
 
+  // switch theme functionality
+  function toggleTheme() {
+    setIsDarkTheme((previous) => !previous);
+  }
+
+  useEffect(() => {
+    if (isDarkTheme) {
+      document.body.classList.add("dark-theme");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.body.classList.remove("dark-theme");
+      localStorage.setItem("theme", "light");
+    }
+  }, [isDarkTheme]);
+
   return (
     <>
-      <BackgroundImage />
+      <BackgroundImage isDarkTheme={isDarkTheme} />
       <div className="container">
-        <Header />
+        <Header isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />
         <Input onAdd={addTodo} />
         <ul className="todos-container">
           {filteredTodos.map((todo) => {
