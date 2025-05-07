@@ -2,13 +2,14 @@
 
 A simple and interactive Todo App built with React, allowing users to add, delete, and filter tasks while saving their preferences in localStorage, including the theme and todo items.
 
+![Preview](public/preview.jpg)
+
 ## 📋 Table of Content
 
 - [Demo](#demo)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
-- [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -59,8 +60,6 @@ npm install
 ```
 npm start
 ```
-
-## Usage
 
 ## Contributing
 
